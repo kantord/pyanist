@@ -7,6 +7,10 @@ key_press_times = list()
 key_release_times = list()
 register_keypresses = True
 
+
+def type_word(word):
+    keyboard.write(word + " ")
+
 def handle_chord(keys):
     global register_keypresses
 
@@ -14,8 +18,12 @@ def handle_chord(keys):
     for _ in keys:
         keyboard.send("backspace")
 
-    for character in "hello world":
-        keyboard.send(character)
+    if keys == set("the"):
+        type_word("the")
+    elif keys == set("spk"):
+        type_word("speak")
+    else:
+        type_word("hello world")
     register_keypresses = True
 
 def handle_keystroke():
@@ -24,7 +32,6 @@ def handle_keystroke():
     keystroke_length = (last_keypress - first_keypress) / timedelta(milliseconds=1)
 
     if len(keystroke) >= 3 and keystroke_length < 50:
-        print("🎹 Chord registered", keystroke, keystroke_length)
         handle_chord(keystroke)
 
 
@@ -45,13 +52,12 @@ def handle_release(event):
 
     key_release_times.append(datetime.now())
     
-    if keystroke:
+    if keystroke and not currently_pressed:
         handle_keystroke()
-
-    keystroke = set()
-    currently_pressed = set()
-    key_press_times = list()
-    key_release_times = list()
+        keystroke = set()
+        currently_pressed = set()
+        key_press_times = list()
+        key_release_times = list()
 
 def handle_hook(event):
     if not register_keypresses:
@@ -62,17 +68,6 @@ def handle_hook(event):
 
     if event.event_type == keyboard.KEY_UP:
         handle_release(event)
-
-    print(event.event_type, event.name, event.time)
-    debug()
-
-
-def debug():
-    print("keystroke", currently_pressed)
-    print("currently pressed", currently_pressed)
-    print("press times", key_press_times)
-    print("release times", key_release_times)
-    print("-----")
 
 keyboard.hook(handle_hook)
 keyboard.wait()
