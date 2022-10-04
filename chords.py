@@ -3,7 +3,8 @@ from datetime import datetime, timedelta
 
 currently_pressed = set()
 keystroke = set()
-first_keypress = None
+key_press_times = list()
+key_release_times = list()
 register_keypresses = True
 
 def handle_chord(keys):
@@ -18,43 +19,60 @@ def handle_chord(keys):
     register_keypresses = True
 
 def handle_keystroke():
-    global keystroke, first_keypress
+    first_keypress = min(key_press_times)
+    last_keypress = max(key_press_times)
+    keystroke_length = (last_keypress - first_keypress) / timedelta(milliseconds=1)
 
-    keystroke_end = datetime.now()
-    keystroke_length = (keystroke_end - first_keypress) / timedelta(milliseconds=1)
-
-    if len(keystroke) > 1:
+    if len(keystroke) >= 3 and keystroke_length < 50:
         print("🎹 Chord registered", keystroke, keystroke_length)
         handle_chord(keystroke)
 
-    keystroke = set()
-    first_keypress = None
 
 def handle_press(event):
-    global first_keypress
-
-    if not register_keypresses:
-        return
+    global key_press_times
 
     key = event.name
     currently_pressed.add(key)
     keystroke.add(key)
-    if not first_keypress:
-        first_keypress = datetime.now()
+    key_press_times.append(datetime.now())
 
 def handle_release(event):
+    global keystroke, key_press_times, key_release_times, currently_pressed
+
     key = event.name
-    currently_pressed.remove(key)
+    if key in currently_pressed:
+        currently_pressed.remove(key)
+
+    key_release_times.append(datetime.now())
     
-    if not currently_pressed:
+    if keystroke:
         handle_keystroke()
 
+    keystroke = set()
+    currently_pressed = set()
+    key_press_times = list()
+    key_release_times = list()
+
 def handle_hook(event):
+    if not register_keypresses:
+        return
+
     if event.event_type == keyboard.KEY_DOWN:
         handle_press(event)
 
     if event.event_type == keyboard.KEY_UP:
         handle_release(event)
+
+    print(event.event_type, event.name, event.time)
+    debug()
+
+
+def debug():
+    print("keystroke", currently_pressed)
+    print("currently pressed", currently_pressed)
+    print("press times", key_press_times)
+    print("release times", key_release_times)
+    print("-----")
 
 keyboard.hook(handle_hook)
 keyboard.wait()
