@@ -8,6 +8,16 @@ key_release_times = list()
 register_keypresses = True
 
 
+WORDS = {}
+
+with open('./words.txt') as words_file:
+    for raw_word in words_file.readlines():
+        word = raw_word.strip()
+        chord = tuple(sorted(set(word)))
+        if len(chord) >= 3:
+            WORDS[chord] = word
+
+
 def type_word(word):
     keyboard.write(word + " ")
 
@@ -18,12 +28,10 @@ def handle_chord(keys):
     for _ in keys:
         keyboard.send("backspace")
 
-    if keys == set("the"):
-        type_word("the")
-    elif keys == set("spk"):
-        type_word("speak")
-    else:
-        type_word("hello world")
+    chord = tuple(sorted(keys))
+    if chord in WORDS:
+        word = WORDS[chord]
+        type_word(word)
     register_keypresses = True
 
 def handle_keystroke():
@@ -69,5 +77,10 @@ def handle_hook(event):
     if event.event_type == keyboard.KEY_UP:
         handle_release(event)
 
-keyboard.hook(handle_hook)
-keyboard.wait()
+def main():
+    keyboard.hook(handle_hook)
+    keyboard.wait()
+
+if __name__ == "__main__":
+   main()
+
