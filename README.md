@@ -15,6 +15,21 @@ Things to keep in mind about chords:
 - basically 3-4 characters in a chord is ok, 5 is doable, anything more than that is a bit difficult probably ok on home row 
   - p z and q are more difficult letters
 
+# Top words to practice
+
+```
+have        -> ahv
+that        -> ahs
+for         -> fjo
+you         -> osu
+with        -> ijw
+say         -> asy
+this        -> ijs
+they        -> esy
+but         -> blu
+his         -> fhsz
+```
+
 
 # Attributions/sources
 
