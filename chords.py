@@ -1,5 +1,6 @@
-import keyboard
+import json
 from datetime import datetime, timedelta
+import keyboard
 
 currently_pressed = set()
 keystroke = set()
@@ -8,15 +9,10 @@ key_release_times = list()
 register_keypresses = True
 
 
-WORDS = {}
+with open('./dictionaries/english-us.json') as dictionary_file:
+    WORDS = json.load(dictionary_file)
 
-with open('./words.txt') as words_file:
-    for raw_word in words_file.readlines():
-        word = raw_word.strip()
-        chord = tuple(sorted(set(word)))
-        if len(chord) >= 3:
-            WORDS[chord] = word
-
+print("Ready!")
 
 def type_word(word):
     keyboard.write(word + " ")
@@ -28,7 +24,7 @@ def handle_chord(keys):
     for _ in keys:
         keyboard.send("backspace")
 
-    chord = tuple(sorted(keys))
+    chord = "".join(sorted(keys))
     if chord in WORDS:
         word = WORDS[chord]
         type_word(word)
@@ -68,6 +64,7 @@ def handle_release(event):
         key_release_times = list()
 
 def handle_hook(event):
+    # print("Keyboard event", event)
     if not register_keypresses:
         return
 
@@ -78,6 +75,7 @@ def handle_hook(event):
         handle_release(event)
 
 def main():
+    print("Waiting for keys!")
     keyboard.hook(handle_hook)
     keyboard.wait()
 
