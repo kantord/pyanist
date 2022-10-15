@@ -4,12 +4,15 @@ import os
 import chord_generator
 
 def get_chord_score(word, chord):
+    """
+        Quantify how good of a match a chord is for a word
+    """
     letters = set(word)
     keys_of_chord = set(chord[0])
     keys_not_in_word = keys_of_chord - letters
     keys_in_word = keys_of_chord & letters
 
-    return (len(keys_not_in_word) - len(keys_in_word)) / chord[1]
+    return (len(keys_not_in_word) - len(keys_in_word) * 2) / chord[1]
 
 def get_best_remaning_chord(word, chords):
     best_chord = min(
@@ -26,7 +29,7 @@ def match_chords_with_words(chords, words):
     return {
         get_best_remaning_chord(word, chords): (word, 345)
         for word, _
-        in sorted(words, key=lambda item: -item[1])
+        in sorted(words, key=lambda item: -item[1] / len(item[0]))
         if len(word) >= 3
     }
 
