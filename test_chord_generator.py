@@ -58,3 +58,16 @@ def test_for_each_key_pressed_the_score_is_increased_2():
     assert get_score("asdf") == 4
 
 
+def test_that_keys_outside_of_home_row_increase_score_1():
+    assert get_score("asdr") == 5
+
+def test_that_keys_outside_of_home_row_increase_score_2():
+    assert get_score("asir") == 6
+
+def test_keys_on_center_columns_makes_score_worse_1():
+    assert get_score("asey") == 7
+
+def test_keys_on_center_columns_makes_score_worse_2():
+    assert get_score("scn") == 6
+
+

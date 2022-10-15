@@ -28,6 +28,8 @@ center_columns_and_corresponding_hands = [
     )
 ]
 
+home_row_keys = "asdfjkl"
+
 def verify_hand(chord, top_row, _, bottom_row, center_column, other_keys_on_hand):
     top_row_keys = set(chord) & set(top_row)
     bottom_row_keys = set(chord) & set(bottom_row)
@@ -56,4 +58,18 @@ def generate_chords():
             if not verify_hand(chord, *right_hand_rows, *right_hand_center):
                 continue
 
-            yield tuple(chord), len(chord)
+            keys_outside_of_home_row = set(chord) - set(home_row_keys)
+            center_column_keys = set(
+                key for key in chord if any(
+                    key in center_column
+                    for center_column, _
+                    in center_columns_and_corresponding_hands
+                )
+            )
+            score = sum([
+                len(chord),
+                len(keys_outside_of_home_row),
+                len(center_column_keys)
+            ])
+
+            yield tuple(chord), score
