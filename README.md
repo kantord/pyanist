@@ -14,3 +14,8 @@ Things to keep in mind about chords:
 - anything on home row is better
 - basically 3-4 characters in a chord is ok, 5 is doable, anything more than that is a bit difficult probably ok on home row 
   - p z and q are more difficult letters
+
+
+# Attributions/sources
+
+./word-freq-top5000.csv - https://raw.githubusercontent.com/filiph/english_words/master/data/word-freq-top5000.csv (MIT)
