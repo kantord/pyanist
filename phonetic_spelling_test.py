@@ -4,34 +4,35 @@ from phonemizer.backend import EspeakBackend
 from phonemizer.punctuation import Punctuation
 from phonemizer.separator import Separator
 
-with open('./word-frequency-lists/word-freq-top5000.csv') as input_file:
-    words = [line.split(',')[0] for line in input_file]
+with open("./word-frequency-lists/word-freq-top5000.csv") as input_file:
+    words = [line.split(",")[0] for line in input_file]
 
-backend = EspeakBackend('en-us')
-separator = Separator(phone=' ', word=None)
+backend = EspeakBackend("en-us")
+separator = Separator(phone=" ", word=None)
 lexicon = {
     word: backend.phonemize([word], separator=separator, strip=True)[0].split()
-    for word in words}
+    for word in words
+}
 
 spelling_rules = {
-    "b":["b"],
-    "d":["d"],
-    "f":["f"],
-    "g":["g"],
-    "h":["h"],
-    "dʒ":["j"],
-    "k":["k"],
-    "l":["l"],
-    "m":["m"],
-    "n":["n"],
-    "p":["p"],
-    "r":["r"],
-    "s":["s"],
-    "t":["t"],
-    "v":["v"],
-    "w":["w"],
-    "z":["z"],
-    "ʒ":["s"],
+    "b": ["b"],
+    "d": ["d"],
+    "f": ["f"],
+    "g": ["g"],
+    "h": ["h"],
+    "dʒ": ["j"],
+    "k": ["k"],
+    "l": ["l"],
+    "m": ["m"],
+    "n": ["n"],
+    "p": ["p"],
+    "r": ["r"],
+    "s": ["s"],
+    "t": ["t"],
+    "v": ["v"],
+    "w": ["w"],
+    "z": ["z"],
+    "ʒ": ["s"],
     "tʃ": ["ch"],
     "ʃ": ["sh"],
     "θ": ["th"],
@@ -62,12 +63,12 @@ spelling_rules = {
     "ɔ": ["o"],
     "ɹ": ["r"],
     "ɛ": ["e"],
-    "ɡ": ['g'],
+    "ɡ": ["g"],
     "ɛɹ": ["er"],
     "ɜː": ["er"],
-    "ɐ": ['a'],
-    "ɪ": ['i'],
-    "ɪɹ": ['ir'],
+    "ɐ": ["a"],
+    "ɪ": ["i"],
+    "ɪɹ": ["ir"],
     "əl": ["l"],
     "ʊɹ": ["or"],
     "ɚ": ["er", "ir"],
@@ -77,7 +78,7 @@ spelling_rules = {
     "iə": ["ie"],
     "ɑːɹ": ["ar"],
     "ɾ": ["t", "r"],
-    "oː": ['o'],
+    "oː": ["o"],
     "aɪɚ": ["aer", "air"],
     "aɪə": ["aie"],
     "ʔ": [""],
@@ -86,8 +87,6 @@ spelling_rules = {
 }
 
 for word, phoneme_list in lexicon.items():
-    new_spelling = [
-        spelling_rules[phoneme][0] for phoneme in phoneme_list
-    ]
+    new_spelling = [spelling_rules[phoneme][0] for phoneme in phoneme_list]
 
     print(word, "".join(new_spelling))

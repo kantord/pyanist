@@ -9,13 +9,15 @@ key_release_times = list()
 register_keypresses = True
 
 
-with open('./dictionaries/english-us.json') as dictionary_file:
+with open("./dictionaries/english-us.json") as dictionary_file:
     WORDS = json.load(dictionary_file)
 
 print("Ready!")
 
+
 def type_word(word):
     keyboard.write(word + " ")
+
 
 def handle_chord(keys):
     global register_keypresses
@@ -29,6 +31,7 @@ def handle_chord(keys):
         word = WORDS[chord]
         type_word(word)
     register_keypresses = True
+
 
 def handle_keystroke():
     first_keypress = min(key_press_times)
@@ -47,6 +50,7 @@ def handle_press(event):
     keystroke.add(key)
     key_press_times.append(datetime.now())
 
+
 def handle_release(event):
     global keystroke, key_press_times, key_release_times, currently_pressed
 
@@ -55,13 +59,14 @@ def handle_release(event):
         currently_pressed.remove(key)
 
     key_release_times.append(datetime.now())
-    
+
     if keystroke and not currently_pressed:
         handle_keystroke()
         keystroke = set()
         currently_pressed = set()
         key_press_times = list()
         key_release_times = list()
+
 
 def handle_hook(event):
     # print("Keyboard event", event)
@@ -74,11 +79,12 @@ def handle_hook(event):
     if event.event_type == keyboard.KEY_UP:
         handle_release(event)
 
+
 def main():
     print("Waiting for keys!")
     keyboard.hook(handle_hook)
     keyboard.wait()
 
-if __name__ == "__main__":
-   main()
 
+if __name__ == "__main__":
+    main()

@@ -30,7 +30,9 @@ jobs:
 
       - name: install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: |
+          poetry install --no-interaction --no-root
+          sudo apt-get install espeak-ng
 
       - name: install dependencies
         run: poetry install --no-interaction
@@ -40,4 +42,6 @@ jobs:
           source .venv/bin/activate
           pytest
 
+      - name: black
+        uses: psf/black@stable
 
