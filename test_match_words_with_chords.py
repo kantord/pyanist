@@ -77,7 +77,7 @@ def test_more_frequent_words_are_matched_with_better_chords():
 
 
 def test_chords_have_similar_keys_to_the_letters_of_the_word():
-    assert get_chord_of_word("and") == tuple(sorted(set("and")))
+    assert len(set(get_chord_of_word("and")) & set("and")) >= 2
 
 
 def test_phonetic_spelling_example_1():
