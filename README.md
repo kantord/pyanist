@@ -6,6 +6,15 @@ get started by chording a few frequent words instead of having to learn a whole 
 from scratch.
 
 
+## Running Pyanist
+
+After you've installed Pyanist, you can run in using the command:
+
+```bash
+pyanist
+```
+
+
 # Attributions/sources
 
 ./word-freq-top5000.csv - https://raw.githubusercontent.com/filiph/english_words/master/data/word-freq-top5000.csv (MIT)
