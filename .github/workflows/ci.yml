@@ -42,4 +42,6 @@ jobs:
           source .venv/bin/activate
           pytest
 
+      - name: black
+        uses: psf/black@stable
 
