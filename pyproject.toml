@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "pyanist"
-version = "0.1.0"
+version = "0.1.1"
 description = "Pyanist allows using chorded typing in addition to normal typing in order to improve your typing speed"
 authors = ["Dániel Kántor <git@daniel-kantor.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
