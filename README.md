@@ -60,38 +60,49 @@ have no effect.
 
 The chords used to type some of the most common English words:
 
-```
-dar--->the
-akd--->and
-waf--->have
-aeh--->that
-flq--->for
-iou--->you
-wid--->with
-sea--->say
-jiqse--->this
-dai--->they
-doq--->but
-hase--->his
-flm--->from
-aeh--->that
-nafd--->not
-dks--->n't
-she--->she
-wod--->what
-her--->their
-kaux--->can
-wou--->who
-dps--->get
-wud--->would
-wher--->her
-arl--->all
-malk--->make
-ado--->about
-kew--->know
-suil--->will
-wup--->one
-```
+| Importance rank | Frequency rank | Word    | Chord |
+|-----------------|----------------|---------|-------|
+| 0               | 0              | the     | dar   |
+| 1               | 2              | and     | akd   |
+| 4               | 7              | have    | waf   |
+| 6               | 11             | that    | aeh   |
+| 8               | 15             | with    | wid   |
+| 10              | 12             | for     | flq   |
+| 11              | 13             | you     | iou   |
+| 14              | 19             | this    | jiqse |
+| 15              | 20             | they    | dai   |
+| 16              | 26             | that    | aeh   |
+| 17              | 25             | from    | flm   |
+| 19              | 18             | say     | sea   |
+| 20              | 35             | their   | her   |
+| 21              | 24             | his     | hase  |
+| 22              | 22             | but     | doq   |
+| 25              | 27             | not     | nafd  |
+| 26              | 28             | n't     | dks   |
+| 27              | 33             | what    | wod   |
+| 28              | 40             | would   | wud   |
+| 29              | 30             | she     | she   |
+| 30              | 45             | about   | ado   |
+| 31              | 61             | people  | epl   |
+| 33              | 52             | there   | dlr   |
+| 34              | 55             | think   | flk   |
+| 36              | 46             | know    | kew   |
+| 38              | 57             | which   | oic   |
+| 39              | 44             | make    | malk  |
+| 40              | 47             | will    | suil  |
+| 41              | 70             | could   | lkud  |
+| 42              | 53             | year    | jir   |
+| 43              | 88             | because | klz   |
+| 44              | 36             | can     | kaux  |
+| 45              | 51             | time    | dsm   |
+| 46              | 37             | who     | wou   |
+| 48              | 38             | get     | dps   |
+| 49              | 41             | her     | wher  |
+| 51              | 74             | other   | udirw |
+| 52              | 56             | when    | uek   |
+| 53              | 58             | them    | dlm   |
+| 54              | 65             | just    | josfd |
+| 55              | 59             | some    | seo   |
 
 To see the list of all 5000 different chords you can use with Pyanist,
 [see this CSV file](./docs/all_chords.csv).
