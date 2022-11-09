@@ -124,6 +124,35 @@ The chords used to type some of the most common English words:
 To see the list of all 5000 different chords you can use with Pyanist,
 [see this CSV file](./docs/all_chords.csv).
 
+## Learning Pyanist
+
+There is a course designed to learn the most useful chords in Pyanist.
+This course teaches the top *100* words, and is split into 10 lessons.
+
+You will probably need to practice each lesson multiple times on
+different days before the chords are committed to your
+muscle memory.
+
+In order to practice the lessons, you can simply open the text files
+and manually copy them by typing and chording them into a text
+editor. Alternatively, you can use [Monkeytype](https://monkeytype.com/),
+which will also measure your performance. Monkeytype allows you
+to practice a custom file, which is the feature you will need to
+use in order to practice these lessons.
+
+The lessons available:
+
+* [Lesson 1](docs/lesson_1.txt) - the and have with for you this they from say
+* [Lesson 2](docs/lesson_2.txt) - their his but not what would she about people there
+* [Lesson 3](docs/lesson_3.txt) - think know which make will could year because can time
+* [Lesson 4](docs/lesson_4.txt) - who get her other when them just some take all
+* [Lesson 5](docs/lesson_5.txt) - into your these come through than first one something like
+* [Lesson 6](docs/lesson_6.txt) - then more want out him thing see look government those
+* [Lesson 7](docs/lesson_7.txt) - should also between school now student American woman another more
+* [Lesson 8](docs/lesson_8.txt) - child there here well its how find really our very
+* [Lesson 9](docs/lesson_9.txt) - country after become tell many give question two problem only
+* [Lesson 10](docs/lesson_10.txt) - world still back different family even against company good way
+
 ## Attributions/sources
 
 ./word-freq-top5000.csv - https://raw.githubusercontent.com/filiph/english_words/master/data/word-freq-top5000.csv (MIT)
