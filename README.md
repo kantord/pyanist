@@ -14,6 +14,14 @@ from scratch.
 To install Pyanist, you need to have `pip`, or another Python package manager
 installed on your computer. If you have `pip` installed simply run:
 
+**Linux**
+
+```bash
+sudo pip install pyanist
+```
+
+**OS X/Windows**
+
 ```bash
 pip install pyanist
 ```
@@ -26,6 +34,14 @@ After that you should be ready to run Pyanist.
 ## Running Pyanist
 
 After you've installed Pyanist, you can run in using the command:
+
+**Linux**
+
+```bash
+sudo pyanist
+```
+
+**OS X/Windows**
 
 ```bash
 pyanist
