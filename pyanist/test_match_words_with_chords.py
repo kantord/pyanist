@@ -20,7 +20,9 @@ SPELLING_RULES = frozendict(
     }
 )
 
-with open(os.path.join("word-frequency-lists", "word-freq-top5000.csv")) as inputfile:
+with open(
+    os.path.join("pyanist", "word-frequency-lists", "word-freq-top5000.csv")
+) as inputfile:
     raw_words = (line.strip().split(",") for line in inputfile)
 
     WORDS = [("tercanum", 1)] + [
