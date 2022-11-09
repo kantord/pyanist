@@ -16,7 +16,9 @@ with open("./pyanist/word-frequency-lists/word-freq-top5000.csv") as frequency_f
     frequency_data = list(csv.reader(frequency_file))
 
 
-csv_output = csv.DictWriter(sys.stdout, ["#", "word", "chord"])
+csv_output = csv.DictWriter(
+    sys.stdout, ["Importance rank", "Frequency rank", "Word", "Chord"]
+)
 
 
 def format_chord(chord, word):
@@ -31,16 +33,22 @@ def format_chord(chord, word):
     return "".join(best_chord_variant)
 
 
+all_words = enumerate(frequency_data)
+most_important_words = sorted(
+    all_words, key=lambda item: len(item[1][0]) * float(item[1][1]), reverse=True
+)
 csv_output.writeheader()
 
-for number, frequency_datum in tqdm(list(enumerate(frequency_data))):
+for importance_rank, word_data in tqdm(enumerate(most_important_words)):
+    frequency_rank, frequency_datum = word_data
     word, _ = frequency_datum
 
     if word in reverse_dictionary:
         csv_output.writerow(
             {
-                "#": number,
-                "word": word,
-                "chord": format_chord(reverse_dictionary[word], word),
+                "Importance rank": importance_rank,
+                "Frequency rank": frequency_rank,
+                "Word": word,
+                "Chord": format_chord(reverse_dictionary[word], word),
             }
         )

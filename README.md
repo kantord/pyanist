@@ -60,38 +60,66 @@ have no effect.
 
 The chords used to type some of the most common English words:
 
-```
-dar--->the
-akd--->and
-waf--->have
-aeh--->that
-flq--->for
-iou--->you
-wid--->with
-sea--->say
-jiqse--->this
-dai--->they
-doq--->but
-hase--->his
-flm--->from
-aeh--->that
-nafd--->not
-dks--->n't
-she--->she
-wod--->what
-her--->their
-kaux--->can
-wou--->who
-dps--->get
-wud--->would
-wher--->her
-arl--->all
-malk--->make
-ado--->about
-kew--->know
-suil--->will
-wup--->one
-```
+| Chord | Word      |
+|-------|-----------|
+| dar   | the       |
+| akd   | and       |
+| waf   | have      |
+| aeh   | that      |
+| wid   | with      |
+| flq   | for       |
+| iou   | you       |
+| jiqse | this      |
+| dai   | they      |
+| aeh   | that      |
+| flm   | from      |
+| sea   | say       |
+| her   | their     |
+| hase  | his       |
+| doq   | but       |
+| nafd  | not       |
+| dks   | n't       |
+| wod   | what      |
+| wud   | would     |
+| she   | she       |
+| ado   | about     |
+| epl   | people    |
+| dlr   | there     |
+| flk   | think     |
+| kew   | know      |
+| oic   | which     |
+| malk  | make      |
+| suil  | will      |
+| lkud  | could     |
+| jir   | year      |
+| klz   | because   |
+| kaux  | can       |
+| dsm   | time      |
+| wou   | who       |
+| dps   | get       |
+| wher  | her       |
+| udirw | other     |
+| uek   | when      |
+| dlm   | them      |
+| josfd | just      |
+| seo   | some      |
+| ald   | take      |
+| arl   | all       |
+| dko   | into      |
+| jor   | your      |
+| dys   | these     |
+| klm   | come      |
+| fkou  | through   |
+| dakj  | than      |
+| fdlsz | first     |
+| wup   | one       |
+| smf   | something |
+| livx  | like      |
+| dkl   | then      |
+| msr   | more      |
+| wdk   | want      |
+| owfd  | out       |
+| dwm   | him       |
 
 To see the list of all 5000 different chords you can use with Pyanist,
 [see this CSV file](./docs/all_chords.csv).
