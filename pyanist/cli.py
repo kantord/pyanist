@@ -1,4 +1,6 @@
 import json
+import os
+import pkgutil
 from datetime import datetime, timedelta
 import keyboard
 
@@ -9,8 +11,10 @@ key_release_times = list()
 register_keypresses = True
 
 
-with open("./dictionaries/english-us.json") as dictionary_file:
-    WORDS = json.load(dictionary_file)
+dictionary_data = pkgutil.get_data(
+    __name__, os.path.join("dictionaries", "english-us.json")
+)
+WORDS = json.loads(dictionary_data)
 
 print("Ready!")
 
