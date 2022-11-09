@@ -28,11 +28,12 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
+      - name: install espeak
+        run: sudo apt-get install espeak-ng
+
       - name: install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: |
-          poetry install --no-interaction --no-root
-          sudo apt-get install espeak-ng
+        run: poetry install --no-interaction --no-root
 
       - name: install dependencies
         run: poetry install --no-interaction
