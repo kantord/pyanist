@@ -1,3 +1,5 @@
+<img src="logo.png" />
+
 # Pyanist
 
 Pyanist is a tool that allows chorded typing using a regular N-key rollover keyboard.
