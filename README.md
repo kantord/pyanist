@@ -47,6 +47,54 @@ sudo pyanist
 pyanist
 ```
 
+## Using Pyanist
+
+While Pyanist is running, you can type words using chords. Chording means,
+that you press multiple letters at the same time. For example, you can press
+the letters `iou` at the same time in order to type the word `you` with
+a single keystroke.
+
+Whenever you type a chord and a matching word is found, Pyanist will
+write that word for you. If no matching word is found, your chord will
+have no effect.
+
+The chords used to type some of the most common English words:
+
+```
+dar--->the
+akd--->and
+waf--->have
+aeh--->that
+flq--->for
+iou--->you
+wid--->with
+sea--->say
+jiqse--->this
+dai--->they
+doq--->but
+hase--->his
+flm--->from
+aeh--->that
+nafd--->not
+dks--->n't
+she--->she
+wod--->what
+her--->their
+kaux--->can
+wou--->who
+dps--->get
+wud--->would
+wher--->her
+arl--->all
+malk--->make
+ado--->about
+kew--->know
+suil--->will
+wup--->one
+```
+
+To see the list of all 5000 different chords you can use with Pyanist,
+[see this CSV file](./docs/all_chords.csv).
 
 ## Attributions/sources
 
